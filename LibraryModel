@@ -1,7 +1,7 @@
 /*
  * LibraryModel.java
- * Author:
- * Created on:
+ * Author: David Rhode
+ * Created on: June 2021
  */
 
 
@@ -20,15 +20,14 @@ public class LibraryModel {
     //connection object used to connect to the sql database
     Connection con;
 
-    //url to the sql database you want to connect to
-    String url = "jdbc:postgresql://db.ecs.vuw.ac.nz/rhodedavi_jdbc";
-
-    public LibraryModel(JFrame parent, String userid, String password) {
+     public LibraryModel(JFrame parent, String userid, String password) {
 	    dialogParent = parent;
 
 	    try {
             //Register a PostgreSQL Driver
             Class.forName("org.postgresql.Driver");
+	    //url to the sql database you want to connect to
+            String url = "jdbc:postgresql://db.ecs.vuw.ac.nz/" + "userid" + "_jdbc";
             //Establish a Connection
             con = DriverManager.getConnection(url, userid, password);
         } catch (SQLException | ClassNotFoundException cnfe){
